@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="../librerias/plugins/jsgrid/jsgrid.min.css">
   <link rel="stylesheet" href="../librerias/plugins/jsgrid/jsgrid-theme.min.css">
 
- <!-- DataTables -->
- <link rel="stylesheet" href="../librerias/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../librerias/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../librerias/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../librerias/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 

@@ -7,11 +7,11 @@ $categoria1=new ejecutarSQL();
 
 
 
-$idcategoria=isset($_POST["idproductob"])? limpiarCadena($_POST["idproductob"]):"";
+$idcategoria=isset($_POST["idproducto"])? limpiarCadena($_POST["idproducto"]):"";
 
-$producto=isset($_POST["productob"])? limpiarCadena($_POST["productob"]):"";
-$costo=isset($_POST["costob"])? limpiarCadena($_POST["costob"]):"";
-$precio=isset($_POST["preciob"])? limpiarCadena($_POST["preciob"]):"";
+$producto=isset($_POST["producto"])? limpiarCadena($_POST["producto"]):"";
+$costo=isset($_POST["costo"])? limpiarCadena($_POST["costo"]):"";
+$precio=isset($_POST["precio"])? limpiarCadena($_POST["precio"]):"";
 
 
 
@@ -22,35 +22,22 @@ switch ($_GET["opc"]){
 	case 'guardaryeditar':	
 		if (empty($idcategoria)){
 			//calcularPrecios();
-			
-			
-			$sq="INSERT INTO `producto`(`producto`, `costo`, `precio`, `estado`) VALUES ('$producto','$costo','$precio','1')";
-			
+			$sq="INSERT INTO `producto`(`idproducto`, `producto`, `descripcion`, `precio`) VALUES ('$producto','$costo','$precio','1')";
 			$rspta=$categoria1->insertar($sq);
 			echo  $rspta ? "El producto fue registrado" : "El producto no se pudo registrar";
-			
 		}
 		else {
-			
-		
-			$sq="UPDATE `producto` SET `producto`='$producto',`costo`='$costo',`precio`='$precio' WHERE idproducto='$idcategoria'";
+			$sq="UPDATE `producto` SET `producto`='$producto',`descripcion`='$descripcion',`precio`='$precio' WHERE idproducto='$idcategoria'";
 			$rspta=$categoria1->insertar($sq);
-			echo $rspta ? "Categoría actualizada" : "Categoría no se pudo actualizar";
-			
+			echo $rspta ? "Producto actualizada" : "El producto no se pudo actualizar";
 		}
-		
 	break;
-
-	
     case 'listapr':
 		$rspta=$categoria1->listar("SELECT * FROM producto");
-
 		while ($reg = $rspta->fetch_object())
 				{
 				echo '<option value="'.$reg->idlugar.'">'.$reg->lugar. '</option>';
-				
 		}
-        
 		break;
 	case 'anular':
 		$id=$_REQUEST['idcategoria'];
@@ -107,6 +94,5 @@ switch ($_GET["opc"]){
 		echo json_encode($results);
 
 	break;
-	
 }
 ?>

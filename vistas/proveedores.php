@@ -18,52 +18,34 @@ require 'header.php';
         <button type="button" onclick="mostrar()"; class="btn btn-primary">CREAR REGISTRO</button>
         </div>
         <br> 
-         <div class="panel-body table-responsive" id="listadoregistros">
-                         <table id="tbllistado" class="table">
-                           <thead>
-                           <th>Opciones</th>
-                           <th>idproveedor</th>
- 
-                           <th>Nombre</th>
-                           
-                           
-   
-                           
-                           <th>Telefono</th>
-                           <th>Direccion</th>
-                        
-                            
-                           <th>estado</th>
- 
-                     
-                           </thead>
-                           <tbody>                            
-                           </tbody>
-                           <tfoot>
-                           <thead>
-                           <th>Opciones</th>
-                           <th>idproveedor</th>
- 
-                           <th>Nombre</th>
-                           
-                           
-   
-                           
-                           <th>Telefono</th>
-                           <th>Direccion</th>
-                        
-                            
-                           <th>estado</th>
- 
-                     
-                           </tfoot>
-                         </table>
-                     </div>
-         <div class="panel-body" style="height: 400px;" id="formularioregistros">
-         
-         <div>
- 
- </section>
+        <div class="panel-body table-responsive" id="listadoregistros">
+                        <table id="tbllistado" class="table">
+                          <thead>
+                          <th>Opciones</th>
+                          <th>idproveedor</th>
+
+                          <th>Nombre</th>
+
+                          <th>Telefono</th>
+                          <th>Direccion</th>
+                          <th>estado</th>
+                          </thead>
+                          <tbody>                            
+                          </tbody>
+                          <tfoot>
+                          <thead>
+                          <th>Opciones</th>
+                          <th>idproveedor</th>
+                          <th>Nombre</th>
+                          <th>Telefono</th>
+                          <th>Direccion</th>
+                          <th>estado</th>
+                          </tfoot>
+                        </table>
+                    </div>
+        <div class="panel-body" style="height: 400px;" id="formularioregistros">
+        <div>
+</section>
 
               </section>
               
@@ -101,38 +83,29 @@ require 'footer.php';
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        
-
-      <form role="form"  id="formulario" name="formulario">
-            <div class="row">
-            <div class="col-md-4">
-                <label> Proveedor:</label>
-                <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor" name="proveedor" id="proveedor" required>
-                <input type="text" hidden name="idproveedor" id="idproveedor">
-              </div>
-              
-              <div class="col-md-4">
-                <label> Telefono:</label>
-                <input type="text" class="form-control" placeholder="Ingrese el telefono de contacto" name="telefono" id="telefono" required>
-              </div>
-              <div class="col-md-4">
-                <label> Direccion:</label>
-                <input type="text" class="form-control" placeholder="Ingrese direccion del proveeedor" name="direccion" id="direccion" required>
-              </div>
-              
-            
-          
-        
-        <section class="content">
-          <br>
-        <div id="botones"> 
-          
-        <button type="button" onclick="guardarRegistro()"; class="btn btn-primary">GUARDAR REGISTRO</button>
-        </div>
-
-
-</div>
+    <div class="modal-body">
+  <form role="form"  id="formulario" name="formulario">
+    <div class="row">
+      <div class="col-md-4">
+        <label> Proveedor:</label>
+        <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor" name="proveedor" id="proveedor" required>
+        <input type="text" hidden name="idproveedor" id="idproveedor">
+      </div>
+                
+      <div class="col-md-4">
+        <label> Telefono:</label>
+        <input type="text" class="form-control" placeholder="Ingrese el telefono de contacto" name="telefono" id="telefono" required>
+      </div>
+      <div class="col-md-4">
+        <label> Direccion:</label>
+        <input type="text" class="form-control" placeholder="Ingrese direccion del proveeedor" name="direccion" id="direccion" required>
+      </div>
+      <section class="content">
+      <br>
+      <div id="botones"> 
+      <button type="button" onclick="guardarRegistro()"; class="btn btn-primary">GUARDAR REGISTRO</button>
+    </div>
+  </div>
 </div>
 
 

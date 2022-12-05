@@ -10,9 +10,7 @@ listar();
 	guardarRegistro(e);
 	} );
 }
-
 function activar(idcategoria){
-
 	Swal.fire({
 		title: 'Desea activar el registro?',
 		text: "Esta seguro de activar el registro",
@@ -23,7 +21,6 @@ function activar(idcategoria){
 		confirmButtonText: 'Yes, Activar!'
 	}).then((result) => {
 		if (result.isConfirmed) {
-
 			$.post("../ajax/proveedor.php?opc=activar", {idcategoria : idcategoria}, function(e){
 				
 				Swal.fire(
@@ -31,32 +28,12 @@ function activar(idcategoria){
 					e,
 					'success'
 				)
-		            tabla.ajax.reload();
-        	});
-
-
+				tabla.ajax.reload();
+    });
 		}
 	})
-
-
-
-/*
-bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
-		if(result)
-        {
-        	$.post("../ajax/proveedor.php?opc=activar", {idcategoria : idcategoria}, function(e){
-        		bootbox.alert(e);
-	            tabla.ajax.reload();
-        	});	
-        }
-	})*/
-	
-
-
-
 }
 function desactivar(idcategoria){
-
 	Swal.fire({
 		title: 'Estas seguro de anular?',
 		text: "Pasara a los desactivados",
@@ -78,42 +55,22 @@ function desactivar(idcategoria){
         	});	
 		}
 	})
-
-
-	/*bootbox.confirm("¿Está Seguro de anular la Categoría?", function(result){
-		if(result)
-        {
-        	$.post("../ajax/proveedor.php?opc=anular", {idcategoria : idcategoria}, function(e){
-        		bootbox.alert(e);
-	            tabla.ajax.reload();
-        	});	
-        }
-	})*/
-	
-
-
-
 }
-function mostrar(idcategoria){
-	$("#exampleModalCenter").modal('show');
-//alert("Mostra " +idcategoria);
+function mostrar(){
+	$("#modal_cart").modal('show');
+	//alert("Mostra " +idcategoria);
 
-$.post("../ajax/trabajadores.php?opc=mostrar",{idcategoria : idcategoria}, function(data, status)
-	{
-		data = JSON.parse(data);	
-	
-
-		/// # es de la vista, data es de la tabla
-		$("#idproveedor").val(data.idproveedor);
-		$("#proveedor").val(data.proveedor);
-		$("#telefono").val(data.costo);
-		$("#direccion").val(data.precio);
-		
-		
-		
-
-})
+	// $.post("../ajax/producto.php?opc=mostrar",{idcategoria : idcategoria}, function(data, status)
+	// 	{
+	// 		data = JSON.parse(data);	
+	// 		/// # es de la vista, data es de la tabla
+	// 		$("#idproducto").val(data.idproducto);
+	// 		$("#producto").val(data.producto);
+	// 		$("#descripcion").val(data.descripcion);
+	// 		$("#precio").val(data.precio);
+	// 	})
 }
+
 function limpiar(){
 	$("#idlugar").val("");
 		$("#lugar").val("");
@@ -129,7 +86,7 @@ function guardarRegistro(){
 
 	var formData = new FormData($("#formulario")[0]);
 	$.ajax({
-		url: "../ajax/trabajadores.php?opc=guardaryeditar",
+		url: "../ajax/producto.php?opc=guardaryeditar",
 	    type: "POST",
 	    data: formData,
 	    contentType: false,
@@ -165,7 +122,7 @@ function listar(){
 		        ],
 		"ajax":
 				{
-					url: '../ajax/trabajadores.php?opc=listar',
+					url: '../ajax/producto.php?opc=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){
@@ -178,50 +135,6 @@ function listar(){
 	    "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
 	}).DataTable();
 	
-
-}
-
-function agregar_item(){
-
-        document.getElementById("content").innerHTML+=
-        '<div class="card-group" id="card-group">'+
-        '<div class="card">'+
-        '<div class="w-50 p-3"><!-- Imagen -->'+
-        '<img class="card-img-top" src="img_productos/vino_anejo.jpg" alt="Card image cap">'+
-        '</div>'+
-        '<div class="card-body"><!-- Cuerpo -->'+
-        '<h5 class="card-title">VINO 3</h5>'+
-        '<p class="card-text">Aqui va la info del producto.</p>'+
-        '<button type="button" class="btn btn-primary">'+
-        '<i class="fas fa-cart-plus"> Agregar al carrito</i>'+
-        '</button>'+
-        '</div>'+
-        '</div>'+
-        '<div class="card">'+
-        '<div class="w-50 p-3"><!-- Imagen -->'+
-        '<img class="card-img-top" src="img_productos/vino_anejo.jpg" alt="Card image cap">'+
-        '</div>'+
-        '<div class="card-body"><!-- Cuerpo -->'+
-        '<h5 class="card-title">VINO 3</h5>'+
-        '<p class="card-text">Aqui va la info del producto.</p>'+
-        '<button type="button" class="btn btn-primary">'+
-        '<i class="fas fa-cart-plus"> Agregar al carrito</i>'+
-        '</button>'+
-        '</div>'+
-        '</div>'+
-        '<div class="card">'+
-        '<div class="w-50 p-3"><!-- Imagen -->'+
-        '<img class="card-img-top" src="img_productos/vino_anejo.jpg" alt="Card image cap">'+
-        '</div>'+
-        '<div class="card-body"><!-- Cuerpo -->'+
-        '<h5 class="card-title">VINO 3</h5>'+
-        '<p class="card-text">Aqui va la info del producto.</p>'+
-        '<button type="button" class="btn btn-primary">'+
-        '<i class="fas fa-cart-plus"> Agregar al carrito</i>'+
-        '</button>'+
-        '</div>'+
-        '</div>'+
-        '</div>';
 
 }
 

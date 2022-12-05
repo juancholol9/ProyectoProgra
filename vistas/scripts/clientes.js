@@ -105,23 +105,17 @@ function desactivar(idcategoria){
 function mostrar(idcategoria){
 	$("#exampleModalCenter").modal('show');
 //alert("Mostra " +idcategoria);
-
 $.post("../ajax/clientes.php?opc=mostrar",{idcategoria : idcategoria}, function(data, status)
 	{
 		data = JSON.parse(data);	
-	
-
 		/// # es de la vista, data es de la tabla
 		$("#idproveedor").val(data.idproveedor);
 		$("#proveedor").val(data.proveedor);
 		$("#telefono").val(data.costo);
 		$("#direccion").val(data.precio);
-		
-		
-		
-
- 	})
+	})
 }
+
 function limpiar(){
 	$("#idlugar").val("");
 		$("#lugar").val("");

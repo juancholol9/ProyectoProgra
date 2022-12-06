@@ -69,7 +69,7 @@ include("modal_cart.php");
   <tr>
   <th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
   <td>
-  <img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" >
+  <img height=100 width=100 src="img_productos/<?php echo $resultado['img']; ?>.jpg" >
   </td>
     <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['cantidad'] ?></td>
     <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['producto'] ?></td>

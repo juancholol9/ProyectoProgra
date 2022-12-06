@@ -148,7 +148,7 @@ include("modal_cart.php");
   </div>
   <div class="col-md-6">
     <label for="validationCustom02" class="form-label">Apellido</label>
-    <input type="text" class="form-control" id="validationCustom02" name="apellidos" value="<?php echo $resultado["apellidos"]; ?>"  required>
+    <input type="text" class="form-control" id="validationCustom02" name="apellido" value="<?php echo $resultado["apellido"]; ?>"  required>
     <div class="valid-feedback">
     Correcto!
     </div>

@@ -106,7 +106,7 @@ require 'header.php';
                 <strong  style="text-align: left; color: #000000;">
                 <?php $totalfinal = el_total + $totaliva; 
                 echo number_format($totalfinal, 2, '.', '.');
-                ?>€
+                ?>$
                 </strong>
                 </span>
                 </li>
@@ -116,24 +116,24 @@ require 'header.php';
         <div class="container-fluid p-2">
                 <table class="table">
                 <thead>
-                <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Localidad</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Medio de pago</th>
-                <th scope="col">Estado del pedido</th>
-                </tr>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Localidad</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Medio de pago</th>
+                        <th scope="col">Estado del pedido</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr>
-                <td style="vertical-align: middle;"><?php print dato_nombre; ?></td>
-                <td style="vertical-align: middle;"><?php print dato_apellidos; ?></td>
-                <td style="vertical-align: middle;"><?php print dato_localidad; ?></td>
-                <td style="vertical-align: middle;"><?php print dato_telefono; ?></td>
-                <td style="vertical-align: middle;"><?php print dato_medio; ?></td>
-                <td style="vertical-align: middle;"><?php print dato_estado; ?></td>
-                </tr>    
+                    <tr>
+                        <td style="vertical-align: middle;"><?php print dato_nombre; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_apellidos; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_localidad; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_telefono; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_medio; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_estado; ?></td>
+                    </tr>    
                 </tbody>
                 </table>
             </div>

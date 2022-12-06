@@ -1,6 +1,5 @@
 <?php session_start();
 
-
 //aqui empieza el carrito
 if(isset($_SESSION['carrito']) || isset($_POST['producto'])){
 	if(isset($_SESSION['carrito'])){
@@ -12,10 +11,10 @@ if(isset($_SESSION['carrito']) || isset($_POST['producto'])){
 			$idproducto=$_POST['idproducto'];
 			$donde=-1;
 			for($i=0;$i<=count($carrito_mio)-1;$i ++){
-			   if($idproducto==$carrito_mio[$i]['idproducto']){
-			   	  //Quitamos esta linea para que no aumente la cantidad y genere una linea nueva
-			   //	$donde=$i;
-			   }
+				if($idproducto==$carrito_mio[$i]['idproducto']){
+				//Quitamos esta linea para que no aumente la cantidad y genere una linea nueva
+				//	$donde=$i;
+				}
 			}
 			if($donde != -1){
 				$cuanto=$carrito_mio[$donde]['cantidad'] + $cantidad;
@@ -38,17 +37,12 @@ if(isset($_SESSION['carrito']) || isset($_POST['producto'])){
 			$carrito_mio[$id]=NULL;
 		}else{
 			$carrito_mio[$id]['cantidad']=$cuantos;
-
-
 		}
 	}
 	if(isset($_POST['id2'])){
 		$id=$_POST['id2'];
 		$carrito_mio[$id]=NULL;
 	}
-	
-
-
 $_SESSION['carrito']=$carrito_mio;
 }
 //aqui termina el carrito
@@ -61,7 +55,5 @@ $_SESSION['carrito']=$carrito_mio;
 // $totalc ++ ;
 // $totalcantidad += $totalc;
 // }}}
-
 header("Location: ".$_SERVER['HTTP_REFERER']."");
-
 ?>

@@ -7,22 +7,15 @@
 <meta name="Description" content="Enter your description here"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 <script src="../Alert/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="../Alert/sweetalert.css">
-
+<link rel="stylesheet" href="../Alert/sweetalert.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
- <!-- ESTILO CURSOS DE PROGRAMACION -->
- <link rel="stylesheet" href="../css/style_cp.css">
-
-
+<!-- ESTILO CURSOS DE PROGRAMACION -->
+<link rel="stylesheet" href="../css/style_cp.css">
 <title>Carrito paso 2</title>
 </head>
 <body>
-
-
 <style>
 .container_card{    margin: 0 auto;    padding:  0px 20px 20px 20px;    display: grid;    /* width: 800px; */    grid-template-columns: 1fr 1fr ;   grid-gap:1em;        /* grid-row-gap: 60px; */}
 .blog-post{    position: relative;    margin-bottom: 15px;    margin: 30px;}
@@ -53,55 +46,46 @@ include("modal_cart.php");
             <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Mi pedido</p>
         <div class="container-fluid p-2">
 <table class="table">
-<thead>
-<tr>
-<th scope="col">#</th>
-<th scope="col">Imagen</th>
-<th scope="col">Cantidad</th>
-<th scope="col">Artículo</th>
-<th scope="col">Precio</th>
-<th scope="col">Total</th>
-</tr>
-</thead>
-<tbody>
-    
-
-
-
-
-<div class="container_card">
-
+  <thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Imagen</th>
+    <th scope="col">Cantidad</th>
+    <th scope="col">Artículo</th>
+    <th scope="col">Precio</th>
+    <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <div class="container_card">
+    <?php
+      if(isset($_SESSION['carrito'])){
+        $total=0;
+          for($i=0;$i<=count($carrito_mio)-1;$i ++){
+            if(isset($carrito_mio[$i])){
+              if($carrito_mio[$i]!=NULL){
+    ?>
+  <?php if ($carrito_mio[$i]['precio'] != 'portes'){ ?>
+  <tr>
+  <th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
+  <td>
+  <img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" >
+  </td>
+    <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['cantidad'] ?></td>
+    <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['producto'] ?></td>
+    <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] ?>€</td>
+    <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']; ?>€</td>
+  </tr>    
+  <?php } ?>
   <?php
-    if(isset($_SESSION['carrito'])){
-      $total=0;
-        for($i=0;$i<=count($carrito_mio)-1;$i ++){
-          if(isset($carrito_mio[$i])){
-            if($carrito_mio[$i]!=NULL){
+  $total=$total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
+  }
+  }
+  }
+  }
   ?>
-
-<?php if ($carrito_mio[$i]['precio'] != 'portes'){ ?>
-<tr>
-<th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
-<td>
-<img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" alt="" width="100px">
-</td>
-  <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['cantidad'] ?></td>
-  <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['producto'] ?></td>
-  <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] ?>€</td>
-  <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']; ?>€</td>
-</tr>    
-<?php } ?>
-<?php
-$total=$total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
-}
-}
-}
-}
-?>
-
-</tbody>
+  </tbody>
 </table>
-
 
 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>Total (DOL)</strong></span>
@@ -118,17 +102,18 @@ $total=$total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
                 echo number_format($total, 2, ',', '.');  ?> €</strong>
                 </li>
 
-
-
 </div>
 </div>
 <a type="button" class="btn btn-success my-4" href="mipedido3.php">Continuar pedido</a>
 </div>
 </div>
-<!-- END vista B -->
 
 </section>
 </div>
+
+<?php 
+// require 'footer.php';
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

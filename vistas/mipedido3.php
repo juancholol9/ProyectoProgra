@@ -1,7 +1,3 @@
-<?php  session_start();
-include("../config/conexion.php");
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,23 +7,15 @@ include("../config/conexion.php");
 <meta name="Description" content="Enter your description here"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 <script src="../Alert/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="../Alert/sweetalert.css">
-
+<link rel="stylesheet" href="../Alert/sweetalert.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
- <!-- ESTILO CURSOS DE PROGRAMACION -->
- <link rel="stylesheet" href="../css/style_cp.css">
-
-
+<!-- ESTILO CURSOS DE PROGRAMACION -->
+<link rel="stylesheet" href="../css/style_cp.css">
 <title>Consulta basica</title>
 </head>
 <body>
-
-
-
 <style>
 .container_card{    margin: 0 auto;    padding:  0px 20px 20px 20px;    display: grid;    /* width: 800px; */    grid-template-columns: 1fr 1fr ;   grid-gap:1em;        /* grid-row-gap: 60px; */}
 .blog-post{    position: relative;    margin-bottom: 15px;    margin: 30px;}
@@ -42,30 +30,17 @@ include("../config/conexion.php");
 @media screen and (max-width: 600px) {    .container_card{        grid-template-columns: 1fr;        grid-row-gap: 60px;    }}
 </style>
 
-
-<!-- NAVBAR -->
 <?php 
-
+session_start();
+require 'header.php';
+include("../config/conexion.php");
 include("../vistas/nav_cart.php"); 
 include("../vistas/modal_cart.php");
-
 ?>
 
+<div class="content-wrapper">        
+    <section class="content">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- vista C -->
 <div class="center mt-5">
     <div class="card pt-3" >
             <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Modificar mi pedido</p>
@@ -83,13 +58,7 @@ include("../vistas/modal_cart.php");
 </tr>
 </thead>
 <tbody>
-      
-
-
-
-
             <div class="container_card">
- 
             <?php
             if(isset($_SESSION['carrito'])){
             $total=0;
@@ -105,10 +74,10 @@ include("../vistas/modal_cart.php");
 </td>
 <td style="vertical-align: middle;">
 <form id="form2" name="form1" method="post" action="cart.php">
-          <input name="id" type="hidden" id="id" value="<?php print $i;   ?>" class="align-middle" />
-          <input  name="cantidad" type="text" id="cantidad" style="width:50px;" class="align-middle text-center"   value="<?php print $carrito_mio[$i]['cantidad'];   ?>" size="1" maxlength="4"  />
-          <input  type="image" name="imageField3" src="img_extras/actualiza.png" value="" class="btn btn-sm btn-primary btn-rounded" />
-          </form>   
+        <input name="id" type="hidden" id="id" value="<?php print $i;   ?>" class="align-middle" />
+        <input  name="cantidad" type="text" id="cantidad" style="width:50px;" class="align-middle text-center"   value="<?php print $carrito_mio[$i]['cantidad'];   ?>" size="1" maxlength="4"  />
+        <input  type="image" name="imageField3" src="img_extras/actualiza.png" value="" class="btn btn-sm btn-primary btn-rounded" />
+        </form>   
 </td>
 
 
@@ -118,10 +87,10 @@ include("../vistas/modal_cart.php");
 <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']; ?>€</td>
 <td style="vertical-align: middle;">
 <form id="form3" name="form2" method="post" action="cart.php">
-          <input name="id2" type="hidden" id="id2" value="<?php print $i;   ?>" />
-          <button type="image" name="imageField3"class="btn-lg bg-danger text-white " style="border:0px;" data-toggle="tooltip" data-placement="top"
+        <input name="id2" type="hidden" id="id2" value="<?php print $i;   ?>" />
+        <button type="image" name="imageField3"class="btn-lg bg-danger text-white " style="border:0px;" data-toggle="tooltip" data-placement="top"
                 title="Remove item"><i class="fas fa-trash-alt"></i> Borrar
-              </button>
+            </button>
         </form>
 </td>
 </tr>    
@@ -133,10 +102,8 @@ include("../vistas/modal_cart.php");
 							}
 							}
 							?>
-
 </tbody>
 </table>
-
 
 <li class="list-group-item d-flex justify-content-between">
 							<span  style="text-align: left; color: #000000;"><strong>Total (EUR)</strong></span>
@@ -150,31 +117,19 @@ include("../vistas/modal_cart.php");
                             }
 							}}}
                             if(!isset($total)){$total = '0';}else{ $total = $total;}
-							 echo number_format($total, 2, ',', '.'); ?> €</strong>
+							echo number_format($total, 2, ',', '.'); ?> €</strong>
 							</li>
-
-
-
             </div>
         </div>
-
         <a type="button" class="btn btn-success my-4" href="mipedido5.php">Continuar pedido</a>
-
     </div>
 </div>
-<!-- END vista C -->
+</section>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
+<?php 
+// require 'footer.php';
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

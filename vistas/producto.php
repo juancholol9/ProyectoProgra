@@ -7,23 +7,15 @@
 <meta name="Description" content="Enter your description here"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 <script src="../Alert/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="../Alert/sweetalert.css">
-
+<link rel="stylesheet" href="../Alert/sweetalert.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
- <!-- ESTILO CURSOS DE PROGRAMACION -->
- <link rel="stylesheet" href="../css/style_cp.css">
-
-
+<!-- ESTILO CURSOS DE PROGRAMACION -->
+<link rel="stylesheet" href="../css/style_cp.css">
 <title>Carrito paso 1</title>
 </head>
 <body>
-
-
-
 <style>
 .container_card{    margin: 0 auto;    padding:  0px 20px 20px 20px;    display: grid;    /* width: 800px; */    grid-template-columns: 1fr 1fr ;   grid-gap:1em;        /* grid-row-gap: 60px; */}
 .blog-post{    position: relative;    margin-bottom: 15px;    margin: 30px;}
@@ -41,11 +33,9 @@
 <?php  session_start();
 require 'header.php';
 include("../config/conexion.php");
-
 include("nav_cart.php"); 
 include("modal_cart.php");
 ?>
-
 
 <div class="content-wrapper">        
     <section class="content">
@@ -78,5 +68,5 @@ include("modal_cart.php");
 </div>
 
 <?php
-require 'footer.php';
+// require 'footer.php';
 ?>

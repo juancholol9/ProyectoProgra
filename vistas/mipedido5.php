@@ -1,6 +1,4 @@
-<?php  session_start();
-include("../config/conexion.php");
-?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -11,22 +9,15 @@ include("../config/conexion.php");
 <meta name="Description" content="Enter your description here"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 <script src="../Alert/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="../Alert/sweetalert.css">
-
+<link rel="stylesheet" href="../Alert/sweetalert.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
- <!-- ESTILO CURSOS DE PROGRAMACION -->
- <link rel="stylesheet" href="../css/style_cp.css">
-
-
+<!-- ESTILO CURSOS DE PROGRAMACION -->
+<link rel="stylesheet" href="../css/style_cp.css">
 <title>Consulta basica</title>
 </head>
 <body>
-
-
 <style>
 .container_card{    margin: 0 auto;    padding:  0px 20px 20px 20px;    display: grid;    /* width: 800px; */    grid-template-columns: 1fr 1fr ;   grid-gap:1em;        /* grid-row-gap: 60px; */}
 .blog-post{    position: relative;    margin-bottom: 15px;    margin: 30px;}
@@ -41,24 +32,17 @@ include("../config/conexion.php");
 @media screen and (max-width: 600px) {    .container_card{        grid-template-columns: 1fr;        grid-row-gap: 60px;    }}
 </style>
 
-
-<!-- NAVBAR -->
-<?php 
-
-// include("../Admin/navbar.php"); 
+<?php
+session_start();
+require 'header.php';
+include("../config/conexion.php");
 include("nav_cart.php"); 
 include("modal_cart.php");
-
 ?>
 
+<div class="content-wrapper">        
+    <section class="content">
 
-
-
-
-
-
-
-<!-- vista D -->
 <div class="center mt-5">
     <div class="card pt-3" >
             <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Sumamos el IVA</p>
@@ -75,13 +59,7 @@ include("modal_cart.php");
 </tr>
 </thead>
 <tbody>
-      
-
-
-
-
             <div class="container_card">
- 
             <?php
             if(isset($_SESSION['carrito'])){
             $total=0;
@@ -89,7 +67,6 @@ include("modal_cart.php");
             if(isset($carrito_mio[$i])){
             if($carrito_mio[$i]!=NULL){
             ?>
-
 <tr>
 <th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
 <td>
@@ -104,7 +81,6 @@ include("modal_cart.php");
 <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] ?>€</td>
 <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']; ?>€</td>
 </tr>    
-
 <?php
 							$total=$total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
 							}
@@ -112,12 +88,8 @@ include("modal_cart.php");
 							}
 							}
 							?>
-
 </tbody>
 </table>
-
-<!-- mas iva -->
-
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>Total (DOL)</strong></span>
                 <?php
@@ -132,8 +104,6 @@ include("modal_cart.php");
                 if(!isset($total)){$total = '0';}else{ $total = $total;}
                 echo number_format($total, 2, ',', '.');  ?> $
                 </li>
-
-
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>I.V.A. (DOL)</strong></span>
                 <span class="grey-text font-weight-bold" style="font-size:14px;">
@@ -143,8 +113,6 @@ include("modal_cart.php");
                 ?>€
                 </span>
                 </li>
-
-
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>Total + I.V.A. (DOL)</strong></span>
                 <span class="grey-text font-weight-bold" style="font-size:14px;">
@@ -155,31 +123,18 @@ include("modal_cart.php");
                 </strong>
                 </span>
                 </li>
-
-
-
             </div>
         </div>
-
-
-
-
 <hr>
 
 <?php
     $busqueda=mysqli_query($conexion,"SELECT * FROM proveedores ORDER BY RAND() LIMIT 1");
     if ($resultado = mysqli_fetch_assoc($busqueda)){}
- ?>
+?>
 
-
-
-
-<!-- datos cliente -->
 <div class="container p-5">
 <form class="row g-3 needs-validation" action="pagar.php" method="POST" novalidate>
-
 <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Datos de envío</p>
-
 <input type="hidden" name="dato" value="insertar" >
   <div class="col-md-6">
     <label for="validationCustom01" class="form-label">Nombre</label>
@@ -222,40 +177,14 @@ include("modal_cart.php");
       Inserte el teléfono.
       </div>
   </div>
-
-
   <button  class="btn btn-success mb-4" type="submit">Pagar y finalizar</button>
-
-
-
-
-
 </form>
 </div>
-
-
-
-
-
-
-
-
-
-     
-
     </div>
 </div>
-<!-- END vista D -->
 
-
-
-
-
-
-
-
-
-
+</section>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

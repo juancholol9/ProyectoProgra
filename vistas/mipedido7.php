@@ -1,7 +1,3 @@
-<?php  session_start();
-include("../config/conexion.php");
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,22 +7,15 @@ include("../config/conexion.php");
 <meta name="Description" content="Enter your description here"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 <script src="../Alert/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="../Alert/sweetalert.css">
-
+<link rel="stylesheet" href="../Alert/sweetalert.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
- <!-- ESTILO CURSOS DE PROGRAMACION -->
- <link rel="stylesheet" href="../css/style_cp.css">
-
-
+<!-- ESTILO CURSOS DE PROGRAMACION -->
+<link rel="stylesheet" href="../css/style_cp.css">
 <title>Consulta basica</title>
 </head>
 <body>
-
-
 <style>
 .container_card{    margin: 0 auto;    padding:  0px 20px 20px 20px;    display: grid;    /* width: 800px; */    grid-template-columns: 1fr 1fr ;   grid-gap:1em;        /* grid-row-gap: 60px; */}
 .blog-post{    position: relative;    margin-bottom: 15px;    margin: 30px;}
@@ -41,44 +30,14 @@ include("../config/conexion.php");
 @media screen and (max-width: 600px) {    .container_card{        grid-template-columns: 1fr;        grid-row-gap: 60px;    }}
 </style>
 
-
-<!-- NAVBAR -->
-<?php 
-
-// include("../Admin/navbar.php"); 
-
-
+<?php  session_start();
+include("../config/conexion.php");
+require 'header.php';
 ?>
 
+<div class="content-wrapper">        
+        <section class="content">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- vista D -->
 <div class="center mt-5">
     <div class="card pt-3" >
             <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Datos de pedido</p>
@@ -94,9 +53,6 @@ include("../config/conexion.php");
                 </tr>
                 </thead>
                 <tbody>
-                    
-
-
                 <?php
                 $busqueda=mysqli_query($conexion,"SELECT t.ref, t.estado, t.medio, t.total, t2.cantidad, t2.articulo, t2.precio, t2.total AS 'total_precio', t3.nombre, t3.apellidos, t3.direccion , t3.telefono
                 FROM facturacion.pedido_cp t
@@ -104,31 +60,22 @@ include("../config/conexion.php");
                 LEFT JOIN facturacion.pedido_cliente_cp t3 ON t.cliente = t3.ref
                 WHERE t2.ref = '".$_REQUEST["dat"]."'
                 "); 
-              
                 ?>
-
                             <div class="container_card">
-                
                         <?php 
                         $num = '0';
                         while ($resultado = mysqli_fetch_assoc($busqueda)){
-                        
                             //meto el total en una contante y despues lo declaro con 
                             //print el_total; o solo son el_total
                             define('el_total', $resultado["total"]);
-
                             define('dato_nombre', $resultado["nombre"]);
                             define('dato_apellidos', $resultado["apellidos"]);
                             define('dato_localidad', $resultado["direccion"]);
                             define('dato_telefono', $resultado["telefono"]);
                             define('dato_medio', $resultado["medio"]);
                             define('dato_estado', $resultado["estado"]);
-
-              
-
                         $num++;
                         ?>
-
                 <tr>
                 <th scope="row" style="vertical-align: middle;"><?php echo $num; ?></th>
                 <td style="vertical-align: middle;"><?php echo $resultado['cantidad']; ?></td>
@@ -136,27 +83,13 @@ include("../config/conexion.php");
                 <td style="vertical-align: middle;"><?php echo $resultado['precio']; ?>€</td>
                 <td style="vertical-align: middle;"><?php echo $resultado['precio'] * $resultado['cantidad']; ?>€</td>
                 </tr>    
-
                 <?php } ?>
-
-
-
                 </tbody>
                 </table>
-
-
-
-
-
-
-                <!-- mas iva -->
-             
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>Total (DOL)</strong></span>
-               <?php print el_total; ?> $
+                <?php print el_total; ?> $
                 </li>
-
-
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>I.V.A. (DOL)</strong></span>
                 <span class="grey-text font-weight-bold" style="font-size:14px;">
@@ -167,8 +100,6 @@ include("../config/conexion.php");
                 ?>€
                 </span>
                 </li>
-
-
                 <li class="list-group-item d-flex justify-content-between">
                 <span  style="text-align: left; color: #000000;"><strong>Total + I.V.A. (EUR)</strong></span>
                 <span class="grey-text font-weight-bold" style="font-size:14px;">
@@ -179,22 +110,13 @@ include("../config/conexion.php");
                 </strong>
                 </span>
                 </li>
-
-
-
             </div>
         </div>
-
-
         <p style="font-weight: bold; color: #0F6BB7; font-size: 22px; margin-top: 25px;">Datos de envío</p>
-
-
-
         <div class="container-fluid p-2">
                 <table class="table">
                 <thead>
                 <tr>
-
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">Localidad</th>
@@ -204,54 +126,23 @@ include("../config/conexion.php");
                 </tr>
                 </thead>
                 <tbody>
-                    
-
                 <tr>
- 
                 <td style="vertical-align: middle;"><?php print dato_nombre; ?></td>
                 <td style="vertical-align: middle;"><?php print dato_apellidos; ?></td>
                 <td style="vertical-align: middle;"><?php print dato_localidad; ?></td>
                 <td style="vertical-align: middle;"><?php print dato_telefono; ?></td>
                 <td style="vertical-align: middle;"><?php print dato_medio; ?></td>
                 <td style="vertical-align: middle;"><?php print dato_estado; ?></td>
-            
                 </tr>    
-
-       
-
-
                 </tbody>
                 </table>
-
-
             </div>
-     
-
-
-
-
-
-
-        <a type="button" class="btn btn-success my-4" href="../Carrito de compra paso 6/index.php">Volver atras</a>
-
+        <a type="button" class="btn btn-success my-4" href="mipedido6.php">Volver atras</a>
     </div>
 </div>
-<!-- END vista D -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</section>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

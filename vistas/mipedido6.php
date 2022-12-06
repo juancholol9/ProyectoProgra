@@ -1,6 +1,4 @@
-<?php  session_start();
-include("../config/conexion.php");
-?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -43,25 +41,15 @@ include("../config/conexion.php");
 </style>
 
 
-<!-- NAVBAR -->
-<?php 
-
-// include("../Admin/navbar.php"); 
-
-
+<?php  session_start();
+include("../config/conexion.php");
+require 'header.php';
 ?>
 
+<div class="content-wrapper">        
+        <section class="content">
 
 
-
-
-
-
-
-
-
-
-<!-- vista B -->
 <div class="center mt-5">
         <div class="card pt-3" >
                 <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Mis pedidos</p>
@@ -100,7 +88,6 @@ include("../config/conexion.php");
                                                         <td><?php echo $resultado["total"]; ?> €</td>
                                                         <td><?php echo $resultado["estado"]; ?></td>
                                                         </tr>    
-
                                                 <?php } ?>
                                         </div>
                                 </tbody>
@@ -108,17 +95,9 @@ include("../config/conexion.php");
                 </div>
         </div>
 </div>
-<!-- END vista B -->
 
-
-
-
-
-
-
-
-
-
+</section>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

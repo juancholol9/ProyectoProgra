@@ -49,7 +49,7 @@ include("../vistas/modal_cart.php");
 <thead>
 <tr>
 <th scope="col">#</th>
-<th scope="col">Imagen</th>
+<th scope="col"></th>
 <th scope="col">Cantidad</th>
 <th scope="col">Artículo</th>
 <th scope="col">Precio</th>
@@ -70,7 +70,6 @@ include("../vistas/modal_cart.php");
 <tr>
 <th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
 <td>
-<img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" alt="" width="100px">
 </td>
 <td style="vertical-align: middle;">
 <form id="form2" name="form1" method="post" action="cart.php">

@@ -51,7 +51,7 @@ include("modal_cart.php");
 <thead>
 <tr>
 <th scope="col">#</th>
-<th scope="col">Imagen</th>
+<th scope="col"></th>
 <th scope="col">Cantidad</th>
 <th scope="col">Artículo</th>
 <th scope="col">Precio</th>
@@ -73,7 +73,6 @@ include("modal_cart.php");
             <?php if ($carrito_mio[$i]['idproducto'] == 'portes'){ ?>
             <img src="img_extras/portes.jpg" alt="" width="100px">
             <?php }else{ ?>
-            <img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" alt="" width="100px">
             <?php } ?>
 </td>
 <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['cantidad'] ?></td>
@@ -138,7 +137,7 @@ include("modal_cart.php");
 <input type="hidden" name="dato" value="insertar" >
   <div class="col-md-6">
     <label for="validationCustom01" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="validationCustom01" name="nombre" value="<?php echo $resultado["nombre"]; ?>"  required>
+    <input type="text" class="form-control" id="validationCustom01" name="nombre" required>
     <div class="valid-feedback">
     Correcto!
     </div>
@@ -148,7 +147,7 @@ include("modal_cart.php");
   </div>
   <div class="col-md-6">
     <label for="validationCustom02" class="form-label">Apellido</label>
-    <input type="text" class="form-control" id="validationCustom02" name="apellido" value="<?php echo $resultado["apellido"]; ?>"  required>
+    <input type="text" class="form-control" id="validationCustom02" name="apellido" required>
     <div class="valid-feedback">
     Correcto!
     </div>
@@ -159,7 +158,7 @@ include("modal_cart.php");
 
   <div class="col-md-6">
     <label for="validationCustom03" class="form-label">Direccion</label>
-    <input type="text" class="form-control" id="validationCustom03" name="direccion" value="<?php echo $resultado["direccion"]; ?>"  required>
+    <input type="text" class="form-control" id="validationCustom03" name="direccion" required>
     <div class="valid-feedback">
     Correcto!
     </div>
@@ -169,7 +168,7 @@ include("modal_cart.php");
   </div>
   <div class="col-md-6">
     <label for="validationCustom04" class="form-label">Teléfono</label>
-    <input type="text" class="form-control" id="validationCustom04" name="telefono" value="<?php echo $resultado["telefono"]; ?>"  required>
+    <input type="text" class="form-control" id="validationCustom04" name="telefono" required>
     <div class="valid-feedback">
     Correcto!
     </div>

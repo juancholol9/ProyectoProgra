@@ -49,7 +49,7 @@ include("modal_cart.php");
   <thead>
     <tr>
     <th scope="col">#</th>
-    <th scope="col">Imagen</th>
+    <th scope="col"></th>
     <th scope="col">Cantidad</th>
     <th scope="col">Artículo</th>
     <th scope="col">Precio</th>
@@ -69,7 +69,6 @@ include("modal_cart.php");
   <tr>
   <th scope="row" style="vertical-align: middle;"><?php echo $i; ?></th>
   <td>
-  <img height=100 width=100 src="img_productos/<?php echo $resultado['img']; ?>.jpg" >
   </td>
     <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['cantidad'] ?></td>
     <td style="vertical-align: middle;"><?php echo $carrito_mio[$i]['producto'] ?></td>

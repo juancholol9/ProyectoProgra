@@ -97,11 +97,11 @@ require 'header.php';
                 $masiva = el_total / 1.21; 
                 $totaliva = el_total - $masiva; 
                 echo number_format($totaliva, 2, '.', '.');
-                ?>€
+                ?>$
                 </span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
-                <span  style="text-align: left; color: #000000;"><strong>Total + I.V.A. (EUR)</strong></span>
+                <span  style="text-align: left; color: #000000;"><strong>Total + I.V.A. (DOL)</strong></span>
                 <span class="grey-text font-weight-bold" style="font-size:14px;">
                 <strong  style="text-align: left; color: #000000;">
                 <?php $totalfinal = el_total + $totaliva; 
@@ -112,32 +112,32 @@ require 'header.php';
                 </li>
             </div>
         </div>
-        <p style="font-weight: bold; color: #0F6BB7; font-size: 22px; margin-top: 25px;">Datos de envío</p>
+        <p style="font-weight: bold; color: #0F6BB7; font-size: 22px; margin-top: 25px;">Datos del Proveedor</p>
         <div class="container-fluid p-2">
                 <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
+                        <th scope="col">Proveedor</th>
                         <th scope="col">Localidad</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Medio de pago</th>
                         <th scope="col">Estado del pedido</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="vertical-align: middle;"><?php print dato_nombre; ?></td>
-                        <td style="vertical-align: middle;"><?php print dato_apellidos; ?></td>
                         <td style="vertical-align: middle;"><?php print dato_localidad; ?></td>
                         <td style="vertical-align: middle;"><?php print dato_telefono; ?></td>
                         <td style="vertical-align: middle;"><?php print dato_medio; ?></td>
                         <td style="vertical-align: middle;"><?php print dato_estado; ?></td>
+                        <td style="vertical-align: middle;"><?php print dato_apellidos; ?></td>
                     </tr>    
                 </tbody>
                 </table>
             </div>
-        <a type="button" class="btn btn-success my-4" href="mipedido6.php">Volver atras</a>
+        <a type="button" class="btn btn-success my-4" href="../inv/invoice.php">Imprimir Factura</a>
     </div>
 </div>
 

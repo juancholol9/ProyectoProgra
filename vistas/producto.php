@@ -42,6 +42,19 @@ include("modal_cart.php");
 
         <?php $busqueda=mysqli_query($conexion,"SELECT * FROM producto"); 
             $numero = mysqli_num_rows($busqueda); ?>
+            <div class="table-responsive">
+                <table class="table  align-middle text-center align-self-center">
+                    <tbody>
+                        <tr>
+                            <td class="align-middle">ID</td>
+                            <td class="align-middle w-25 p-3">Nombre</td>
+                            <td class="align-middle">Foto</td>
+                            <td class="align-middle w-25 p-3 ">Precio</td>
+                            <td class="align-middle w-25 p-3 "></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         <?php while ($resultado = mysqli_fetch_assoc($busqueda)){ ?>
             <form id="formulario" name="formulario" method="post" action="cart.php">
@@ -49,14 +62,12 @@ include("modal_cart.php");
                 <table class="table  align-middle text-center align-self-center">
                     <tbody>
                         <tr>
-                            <td class="align-middle"><input name="idproducto" type="hidden" id="idproducto" value="<?php echo $resultado["idproducto"]; ?>" /></td>
-                            <td class="align-middle w-25 p-3"><input name="producto" type="hidden" id="producto" value="<?php echo $resultado["producto"]; ?>" /></td>
+                            <td class="align-middle"><input name="idproducto" type="hidden" id="idproducto" value="<?php echo $resultado["idproducto"];?>"/><?php echo $resultado["idproducto"];?></td>
+                            <td class="align-middle w-25 p-3"><input name="producto" type="hidden" id="producto" value="<?php echo $resultado["producto"]; ?>" /><?php echo $resultado["producto"]; ?></td>
                             <td class="align-middle"><img height=100 width=100 src="img_productos/<?php echo $resultado["img"]; ?>.jpg" ></td>
-                            <td class="align-middle w-25 p-3"><p><?php echo $resultado["descripcion"]; ?></p></td>
-                            <td class="align-middle w-25 p-3 "><input name="producto" type="hidden" id="producto" value="<?php echo $resultado["producto"]; ?>" /></td>
-                            <td class="align-middle w-25 p-3 "><input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2"/></td>
+                            <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2"/>
+                            <td class="align-middle w-25 p-3 "><input name="precio" type="hidden" id="precio" value="<?php echo $resultado["precio"]; ?>" /><?php echo $resultado["precio"]; ?>$</td>
                             <td class="align-middle w-25 p-3 "><button class="btn btn-primary" type="submit" ><i class="fas fa-shopping-cart"></i> Añadir al carrito</button></td>
-                            <td class="align-middle w-25 p-3 "><input name="precio" type="hidden" id="precio" value="<?php echo $resultado["precio"]; ?>" /></td>
                         </tr>
                     </tbody>
                 </table>
